@@ -16,7 +16,8 @@ namespace XamarinUnitTests.UnitTests
             var vm = new MainPageViewModel();
             var result = vm.DoTheJob1Hander(-1);
             
-            Assert.AreEqual(result, -1);
+            // TODO: revert to -1, failing on purpose to test CI
+            Assert.AreEqual(result, -2);
         }
 
         [Test]
