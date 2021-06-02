@@ -17,5 +17,9 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
+    - name: Restore
+      run: dotnet restore XamarinUnitTesting.UnitTests/XamarinUnitTesting.UnitTests.csproj
+    - name: Build
+      run: dotnet build XamarinUnitTesting.UnitTests/XamarinUnitTesting.UnitTests.csproj --no-restore
     - name: Test
-      run: dotnet test XamarinUnitTesting.UnitTests/XamarinUnitTesting.UnitTests.csproj --verbosity normal
+      run: dotnet test XamarinUnitTesting.UnitTests/XamarinUnitTesting.UnitTests.csproj --no-build --verbosity normal
