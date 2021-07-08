@@ -32,3 +32,12 @@ Passed!  - Failed:     0, Passed:     3, Skipped:     0, Total:     3, Duration:
 After referencing the [Xamarin.CommunityToolkit](https://www.nuget.org/packages/Xamarin.CommunityToolkit/) package at `XamarinUnitTesting` and `XamarinUnitTesting.UnitTests` project, the unit tests are no longer compilable/executable:
 
 > /usr/local/share/dotnet/sdk/6.0.100-preview.3.21202.5/Sdks/Microsoft.NET.Sdk/targets/Microsoft.NET.Sdk.DefaultItems.targets(362,5): error NETSDK1136: The target platform must be set to Windows (usually by including '-windows' in the TargetFramework property) when using Windows Forms or WPF, or referencing projects or packages that do so. [/Users/my_user/Sources/xamarin-unittesting/XamarinUnitTesting.UnitTests/XamarinUnitTesting.UnitTests.csproj]
+
+The issue is [described here](https://github.com/xamarin/XamarinCommunityToolkit/issues/1482) and the [workaround here](https://github.com/xamarin/XamarinCommunityToolkit/issues/1167#issuecomment-833749480)
+
+```dotnetcli
+<PropertyGroup>
+  <TargetFramework>netcoreapp3.1</TargetFramework>
+  <GenerateErrorForMissingTargetingPacks>false</GenerateErrorForMissingTargetingPacks>
+</PropertyGroup>
+```

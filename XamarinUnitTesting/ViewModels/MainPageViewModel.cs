@@ -1,17 +1,16 @@
-﻿using System;
-using System.Windows.Input;
-using Microsoft.MobCAT.MVVM;
+﻿using System.Windows.Input;
+using Xamarin.CommunityToolkit.ObjectModel;
 using Xamarin.Forms;
 
 namespace XamarinUnitTesting.ViewModels
 {
-    public class MainPageViewModel : BaseNotifyPropertyChanged
+    public class MainPageViewModel : ObservableObject
     {
         private string _testProp;
         public string TestProp
         {
             get { return _testProp; }
-            set { RaiseAndUpdate(ref _testProp, value); }
+            set { SetProperty(ref _testProp, value); }
         }
 
         public ICommand DoTheJob1 { get; }
